@@ -12,7 +12,7 @@ export function Navbar() {
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
-              Cubo Mágico
+              Instituto Cubo Mágico
             </h1>
           </div>
 
