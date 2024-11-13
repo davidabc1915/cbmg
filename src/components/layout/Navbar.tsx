@@ -1,8 +1,12 @@
 import { useAuth } from '../../contexts/AuthContext';
 import { useTheme } from '../../contexts/ThemeContext';
-import { LogOut, Sun, Moon } from 'lucide-react';
+import { LogOut, Sun, Moon, Menu } from 'lucide-react';
 
-export function Navbar() {
+interface NavbarProps {
+  onMenuClick: () => void;
+}
+
+export function Navbar({ onMenuClick }: NavbarProps) {
   const { user, logout } = useAuth();
   const { isDark, toggleTheme } = useTheme();
 
@@ -11,7 +15,13 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
+            <button
+              onClick={onMenuClick}
+              className="lg:hidden p-2 rounded-md text-gray-500 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-gray-300 dark:hover:bg-gray-700"
+            >
+              <Menu className="h-6 w-6" />
+            </button>
+            <h1 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white ml-2 lg:ml-0">
               Instituto Cubo Mágico
             </h1>
           </div>
